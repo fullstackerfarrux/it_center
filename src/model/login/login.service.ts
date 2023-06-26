@@ -18,19 +18,20 @@ export class LoginService {
       },
     });
 
-    if (findOne !== null && findOne.password == payload.password) {
+    if (findOne !== null) {
+      if (findOne.password !== payload.password) {
+        return {
+          message: 'Wrong Password!',
+        };
+      }
       return {
         message: 'Success!',
         role: 'admin',
         accessToken: sign({ username: payload.username }),
       };
-    } else if (findOne.password !== payload.password) {
-      return {
-        message: 'Wrong Password!',
-      };
     } else {
       return {
-        message: 'Admin NOT_FOUND',
+        message: 'User Not_Found',
       };
     }
 
