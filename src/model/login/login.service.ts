@@ -21,6 +21,7 @@ export class LoginService {
     if (findOne !== null) {
       return {
         message: 'Admin Logined!',
+        accessToken: sign({ username: payload.username }),
       };
     }
 
