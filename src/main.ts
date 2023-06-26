@@ -3,8 +3,9 @@ import { App } from './app';
 import { ValidationPipe } from '@nestjs/common';
 
 setImmediate(async () => {
-  const app = await NestFactory.create(App);
-  app.enableCors();
+  const app = await NestFactory.create(App, {
+    cors: true,
+  });
 
   app.useGlobalPipes(
     new ValidationPipe({
