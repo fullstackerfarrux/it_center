@@ -77,6 +77,7 @@ var _this = this;
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.LoginService = void 0;
 var common_1 = require("@nestjs/common");
+var helpers_1 = require("src/helpers");
 var LoginService = exports.LoginService = function () {
     var _classDecorators = [(0, common_1.Injectable)()];
     var _classDescriptor;
@@ -101,6 +102,7 @@ var LoginService = exports.LoginService = function () {
                             if (findOne !== null) {
                                 return [2 /*return*/, {
                                         message: 'Admin Logined!',
+                                        accessToken: (0, helpers_1.sign)({ username: payload.username }),
                                     }];
                             }
                             return [2 /*return*/, {
