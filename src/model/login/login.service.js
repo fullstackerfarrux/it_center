@@ -101,7 +101,7 @@ var LoginService = exports.LoginService = function () {
                             findOne = _a.sent();
                             if (findOne !== null) {
                                 return [2 /*return*/, {
-                                        message: 'Admin Logined!',
+                                        message: 'Admin Logineee!',
                                         accessToken: (0, helpers_1.sign)({ username: payload.username }),
                                     }];
                             }
