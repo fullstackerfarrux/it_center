@@ -1,0 +1,22 @@
+datasource db {
+    url =  env("DATABASE_URL")
+    provider = "postgresql"
+    shadowDatabaseUrl = env("SHADOW_DATABASE_URL")
+}
+
+generator create {
+    provider = "prisma-client-js"
+    previewFeatures = ["postgresqlExtensions"]
+}
+
+model Admin {
+    id         String    @map("id")         @db.Uuid         @default(uuid())
+    admin_name String    @map("admin_name") @db.VarChar() 
+    password   String    @map("password")   @db.VarChar()
+    createdAt  DateTime  @map("createdAt")  @db.Timestamp(0) @default(now())
+    deletedAt  String?   @map("deletedAt")  @db.VarChar() 
+
+    @@id([id])
+    @@map("admin")
+}
+
