@@ -18,6 +18,8 @@ export class LoginService {
       },
     });
 
+    console.log(findOne);
+
     if (findOne !== null) {
       return {
         message: 'Admin Logined!',
